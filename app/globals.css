@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* AG Grid custom styles for editing */
+.ag-cell-editing {
+  @apply bg-blue-50 border-blue-200;
+}
+
+.ag-theme-alpine .ag-cell-editing {
+  border: 2px solid rgb(59 130 246) !important;
+  background-color: rgb(239 246 255) !important;
+}
+
+.ag-theme-alpine .ag-row-editing {
+  background-color: rgb(254 249 195) !important;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .invoice-container {
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+  }
+
+  @page {
+    margin: 0.5in;
+    size: A4;
+  }
+
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  table {
+    page-break-inside: avoid;
+  }
+
+  tr {
+    page-break-inside: avoid;
+  }
+}
+
+/* Invoice specific styles */
+.invoice-container {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.invoice-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.invoice-container th,
+.invoice-container td {
+  border: 1px solid #d1d5db;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.invoice-container th {
+  background-color: #f8fafc;
+  font-weight: 600;
+}
+
+.invoice-container .total-row {
+  background-color: #f1f5f9;
+  font-weight: 600;
+}
